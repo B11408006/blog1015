@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a Story | LeafyBlog</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Noto+Serif+TC:wght@400;600&family=Playfair+Display&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header class="navbar">
+        <a class="logo" href="{{ url_for('index') }}">
+            ❧ LeafyBlog
+        </a>
+        <nav>
+            <a href="{{ url_for('index') }}">HOME</a>
+            <a href="{{ url_for('add_post') }}">WRITE</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>❧ Write Your Story</h1>
+
+        <p>寫下生活中的每一個小故事。</p>
+
+        <form method="POST">
+
+            <label>Title / 文章標題</label>
+            <input type="text" name="title"
+                   placeholder="為你的故事取個名字..."
+                   required>
+
+            <label>Author / 作者</label>
+            <input type="text" name="author"
+                   placeholder="你的名字..."
+                   required>
+
+            <label>Content / 文章內容</label>
+            <textarea name="content" rows="10"
+                      placeholder="Every story begins with a thought..."
+                      required></textarea>
+
+            <button type="submit">
+                Publish Story →
+            </button>
+        </form>
+
+        <p>
+            <a href="{{ url_for('index') }}">
+                ← Back to Home
+            </a>
+        </p>
+    </div>
+
+</body>
+</html>

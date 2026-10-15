@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeafyBlog | 生活文字誌</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Noto+Serif+TC:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- 導覽列 -->
+    <header class="navbar">
+        <a class="logo" href="{{ url_for('index') }}">
+            <span class="leaf">❧</span> LeafyBlog
+        </a>
+
+        <nav>
+            <a href="{{ url_for('index') }}">HOME</a>
+            <a href="#about">ABOUT</a>
+            <a href="{{ url_for('add_post') }}">WRITE</a>
+        </nav>
+    </header>
+
+    <!-- 主視覺 -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="eyebrow">A LITTLE SPACE TO GROW</p>
+
+            <h1>Good Ideas<br><em>Grow Here.</em></h1>
+
+            <p class="hero-chinese">
+                在文字裡，讓生活慢下來。
+            </p>
+
+            <p class="hero-english">
+                A blog about life, ideas, and the little things.
+            </p>
+        </div>
+
+        <div class="hero-leaf">❧</div>
+    </section>
+
+    <!-- 文章區 -->
+    <main class="main-layout">
+
+        <section class="articles">
+
+            <div class="section-heading">
+                <div>
+                    <h2>❧ All Articles</h2>
+                    <p>所有文章 · Stories & Thoughts</p>
+                </div>
+
+                <a class="btn" href="{{ url_for('add_post') }}">
+                    + 新增文章
+                </a>
+            </div>
+
+            {% for post in posts %}
+            <article class="post-card">
+
+                <div class="post-decoration">❧</div>
+
+                <div class="post-info">
+                    <span class="post-category">
+                        JOURNAL / {{ "%02d"|format(loop.index) }}
+                    </span>
+
+                    <h3>
+                        <a href="{{ url_for('show_post', post_id=post.id) }}">
+                            {{ post.title }}
+                        </a>
+                    </h3>
+
+                    <p class="post-preview">
+                        {{ post.content | truncate(120) }}
+                    </p>
+
+                    <div class="post-bottom">
+                        <span>✎ {{ post.author }} / Author</span>
+
+                        <a href="{{ url_for('show_post', post_id=post.id) }}">
+                            Read More →
+                        </a>
+                    </div>
+                </div>
+            </article>
+            {% else %}
+            <p class="empty-message">
+                還沒有文章，寫下你的第一篇故事吧。
+            </p>
+            {% endfor %}
+
+        </section>
+
+        <!-- 側邊欄 -->
+        <aside class="sidebar">
+
+            <div class="quote-box">
+                <span class="quote-mark">“</span>
+                <h3>Small words<br>make a big life.</h3>
+                <p>
+                    用文字收藏日常，<br>
+                    讓平凡的日子也閃閃發光。
+                </p>
+                <div class="side-leaf">❧</div>
+            </div>
+
+            <div class="about-box" id="about">
+                <h3>❧ About This Blog</h3>
+                <p>
+                    這是一個關於生活、學習與靈感的小角落。
+                    希望透過文字，記錄每一個值得珍藏的瞬間。
+                </p>
+                <span>Keep growing, keep writing.</span>
+            </div>
+
+        </aside>
+
+    </main>
+
+    <!-- 頁尾 -->
+    <footer>
+        <span>❧ LeafyBlog</span>
+        <p>Thanks for reading. Keep Growing.</p>
+        <span>Made with love & little leaves.</span>
+    </footer>
+
+</body>
+</html>

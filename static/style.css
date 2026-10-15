@@ -1,0 +1,419 @@
+
+:root {
+    --green: #C0D696;
+    --dark-green: #526B3C;
+    --light-green: #F2F6E9;
+    --cream: #F7F9F1;
+    --text: #35452C;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--text);
+    font-family: "Noto Serif TC", serif;
+    line-height: 1.8;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 導覽列 */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: #FFFFFF;
+    border-bottom: 1px solid #E5EBD9;
+}
+
+.logo {
+    font-family: "Playfair Display", serif;
+    font-size: 29px;
+    color: var(--dark-green);
+}
+
+.leaf {
+    color: #8DA66A;
+    font-size: 34px;
+}
+
+nav {
+    display: flex;
+    gap: 35px;
+}
+
+nav a {
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--dark-green);
+}
+
+nav a:hover {
+    color: #91A96A;
+}
+
+/* 主視覺 */
+
+.hero {
+    position: relative;
+    min-height: 340px;
+    padding: 65px 12%;
+    background:
+        radial-gradient(circle at 85% 40%,
+            #C0D696 0%, transparent 35%),
+        linear-gradient(120deg, #F7F9F1, #E5EDD4);
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.eyebrow {
+    font-family: "DM Sans", sans-serif;
+    letter-spacing: 3px;
+    font-size: 11px;
+    color: #829866;
+}
+
+.hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(42px, 6vw, 75px);
+    font-weight: 400;
+    line-height: 1.15;
+    margin: 15px 0 25px;
+    color: var(--dark-green);
+}
+
+.hero h1 em {
+    color: #829866;
+    font-weight: 400;
+}
+
+.hero-chinese {
+    font-size: 18px;
+    letter-spacing: 3px;
+}
+
+.hero-english {
+    font-family: "Playfair Display", serif;
+    letter-spacing: 1px;
+    color: #71845C;
+}
+
+.hero-leaf {
+    position: absolute;
+    right: 8%;
+    top: -120px;
+    font-size: 450px;
+    line-height: 1;
+    color: rgba(82, 107, 60, 0.16);
+    transform: rotate(-25deg);
+}
+
+/* 主要內容 */
+
+.main-layout {
+    max-width: 1250px;
+    margin: 45px auto;
+    padding: 0 25px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.section-heading h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.section-heading p {
+    color: #81906F;
+    font-size: 12px;
+    margin: 5px 0;
+}
+
+.btn, button {
+    background: var(--green);
+    color: var(--text);
+    border: none;
+    padding: 12px 22px;
+    border-radius: 30px;
+    font-family: "Noto Serif TC", serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover, button:hover {
+    background: #A8C47C;
+    transform: translateY(-2px);
+}
+
+/* 文章卡片 */
+
+.post-card {
+    position: relative;
+    display: flex;
+    gap: 25px;
+    background: #FFFFFF;
+    padding: 25px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 20px rgba(70, 90, 50, 0.06);
+    transition: 0.3s;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(70, 90, 50, 0.12);
+}
+
+.post-decoration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 130px;
+    background: #E8EFDB;
+    border-radius: 12px;
+    font-size: 95px;
+    color: #91A96A;
+}
+
+.post-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.post-category {
+    font-family: "DM Sans", sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #829866;
+}
+
+.post-info h3 {
+    font-size: 23px;
+    margin: 12px 0;
+}
+
+.post-info h3 a:hover {
+    color: #829866;
+}
+
+.post-preview {
+    font-size: 14px;
+    color: #68745E;
+    line-height: 2;
+    overflow-wrap: anywhere;
+}
+
+.post-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: #87957A;
+    margin-top: 25px;
+}
+
+.post-bottom a {
+    color: var(--dark-green);
+    font-family: "Playfair Display", serif;
+    font-size: 15px;
+}
+
+/* 側邊欄 */
+
+.sidebar {
+    padding-top: 10px;
+}
+
+.quote-box {
+    position: relative;
+    background: #E8EEDB;
+    border-radius: 18px;
+    padding: 30px;
+    overflow: hidden;
+}
+
+.quote-mark {
+    font-family: Georgia, serif;
+    font-size: 65px;
+    color: #91A96A;
+    line-height: 1;
+}
+
+.quote-box h3 {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-size: 27px;
+    font-weight: 400;
+    color: var(--dark-green);
+    line-height: 1.5;
+}
+
+.quote-box p {
+    font-size: 13px;
+    color: #68745E;
+}
+
+.side-leaf {
+    position: absolute;
+    right: -15px;
+    bottom: -70px;
+    font-size: 200px;
+    color: rgba(82, 107, 60, 0.13);
+}
+
+.about-box {
+    background: white;
+    border-radius: 18px;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+.about-box h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 21px;
+    font-weight: 400;
+}
+
+.about-box p {
+    font-size: 13px;
+    color: #68745E;
+}
+
+.about-box span {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    color: #829866;
+    font-size: 13px;
+}
+
+/* 新增文章與詳細頁 */
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(70, 90, 50, 0.06);
+}
+
+.container h1 {
+    font-family: "Noto Serif TC", serif;
+    color: var(--dark-green);
+    border-bottom: 3px solid var(--green);
+    padding-bottom: 15px;
+}
+
+input, textarea {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0 20px;
+    border: 1px solid var(--green);
+    border-radius: 8px;
+    background: #FAFCF6;
+    font: inherit;
+}
+
+input:focus, textarea:focus {
+    outline: 2px solid #A8C47C;
+}
+
+.content {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    line-height: 2;
+}
+
+/* 頁尾 */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 25px 8%;
+    background: #DCE7C6;
+    color: var(--dark-green);
+    font-family: "Playfair Display", serif;
+    font-size: 14px;
+}
+
+footer p {
+    font-style: italic;
+}
+
+/* 手機版 */
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 5%;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    nav {
+        gap: 16px;
+    }
+
+    .hero {
+        padding: 55px 7%;
+    }
+
+    .hero-leaf {
+        right: -50px;
+        font-size: 280px;
+    }
+
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .post-card {
+        flex-direction: column;
+    }
+
+    .post-decoration {
+        min-height: 130px;
+    }
+
+    .section-heading {
+        flex-wrap: wrap;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
